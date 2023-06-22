@@ -5,10 +5,13 @@
 // I AM NOT DONE
 
 struct ColorClassicStruct {
-    // TODO: Something goes here
+  red:i32,
+  green: i32,
+  blue: i32
 }
 
-struct ColorTupleStruct(/* TODO: Something goes here */);
+struct ColorTupleStruct(i32,i32,i32);
+
 
 #[derive(Debug)]
 struct UnitLikeStruct;
@@ -20,7 +23,7 @@ mod tests {
     #[test]
     fn classic_c_structs() {
         // TODO: Instantiate a classic c struct!
-        // let green =
+         let green =ColorClassicStruct{red:0, green:0, blue:0};
 
         assert_eq!(green.red, 0);
         assert_eq!(green.green, 255);
@@ -30,8 +33,7 @@ mod tests {
     #[test]
     fn tuple_structs() {
         // TODO: Instantiate a tuple struct!
-        // let green =
-
+        let green =ColorClassicStruct(0, 0, 0);
         assert_eq!(green.0, 0);
         assert_eq!(green.1, 255);
         assert_eq!(green.2, 0);
