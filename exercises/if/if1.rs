@@ -2,12 +2,11 @@
 // Execute `rustlings hint if1` or use the `hint` watch subcommand for a hint.
 
 pub fn bigger(a: i32, b: i32) -> i32 {
- if a>b{
-a
-}
-else{
-b
-}
+ if a>b {
+     a
+ } else {
+     b
+ }
 }
 
 // Don't mind this for now :)

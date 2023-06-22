@@ -14,9 +14,7 @@
 // Put your function here!
  fn calculate_price_of_apples(x:i32)->i32 {
 
-if x<41
-{
-
+if x<41 {
 let y=x*2;
 y
 }else {

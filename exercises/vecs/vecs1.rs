@@ -8,8 +8,11 @@
 
 fn array_and_vec() -> ([i32; 4], Vec<i32>) {
     let a = [10, 20, 30, 40]; // a plain array
-    let v = // TODO: declare your vector here with the macro for vectors
-
+    let mut v =Vec::new();
+    // v.push(a[0..=3]);
+for i in 0..a.len(){
+    v.push(a[i] as i32);
+}
     (a, v)
 }
 
@@ -23,3 +26,5 @@ mod tests {
         assert_eq!(a, v[..]);
     }
 }
+
+
