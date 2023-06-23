@@ -3,9 +3,8 @@
 
 
 fn trim_me(input: &str) -> String {
-    let mut x=input.to_string();
-    x=x.trim_start();
-    x=x.trim_end();
+    let  x=input.to_string();
+    let  x=x.trim_start().trim_end().to_string();
     x
 }
 
