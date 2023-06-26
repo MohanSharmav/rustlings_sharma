@@ -18,22 +18,33 @@
 // - The output element is going to be a Vector of strings.
 // No hints this time!
 
-// I AM NOT DONE
 
+use std::collections::HashMap;
+
+//create a hashmap and pass the value
 pub enum Command {
     Uppercase,
     Trim,
     Append(usize),
 }
 
+
 pub mod my_module {
+    use std::collections::HashMap;
     use super::Command;
 
     // TODO: Complete the function signature!
-    pub fn transformer(input :Vec) -> Vec <_>{
-        // TODO: Complete the output declaration!
+    pub fn transformer(input :Vec<(String,Command)>) -> Vec <String>{
         let mut output  = vec![];
-        for (string, command) in input.iter() {
+
+        // seprate the values here and take help of enum here
+        for (string, command) in input.into_iter() {
+
+            match command {
+                Command::Uppercase => output.push(string.to_uppercase()),
+                Command::Trim => output.push(string.trim().into()),
+                Command::Append(x) => output.push(string + &"bar".repeat(x)),
+            };
             // TODO: Complete the function body. You can do it!
         }
         output
@@ -43,15 +54,17 @@ pub mod my_module {
 #[cfg(test)]
 mod tests {
     // TODO: What do we need to import to have `transformer` in scope?
-    use crrate::my_module;
+    use crate::my_module::transformer;
     use super::Command;
+    use std::collections::HashMap;
+
 
     #[test]
     fn it_works() {
         let output = transformer(vec![
-            ("hello".into(), Command::Uppercase),
+            ( "hello".into(), Command::Uppercase),
             (" all roads lead to rome! ".into(), Command::Trim),
-            ("foo".into(), Command::Append(1)),
+            ( "foo".into(), Command::Append(1)),
             ("bar".into(), Command::Append(5)),
         ]);
         assert_eq!(output[0], "HELLO");
