@@ -9,7 +9,8 @@
 // Rust's usual standards for runtime safety, should strike you as somewhat lenient!
 
 // In short, this particular use case for boxes is for when you want to own a value and you care only that it is a
-// type which implements a particular trait. To do so, The Box is declared as of type Box<dyn Trait> where Trait is the trait
+// type which implements a particular trait. To do so, The Box is declared as of type Box<dyn Trait> where Trait
+// is the trait
 // the compiler looks for on any value used in that context. For this exercise,
 // that context is the potential errors
 // which can be returned in a Result.
@@ -19,29 +20,28 @@
 
 // Execute `rustlings hint errors5` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 use std::error;
 use std::fmt;
 use std::fmt::{Display, Formatter};
 use std::num::ParseIntError;
 
+
 // TODO: update the return type of `main()` to make this compile.
-fn main() ->
-         Result<(), Box<dyn error::Error>>
-{
-    let pretend_user_input = "42";
-    let x: i64 = pretend_user_input.parse().map_err(creation);
-    println!("output={:?}", PositiveNonzeroInteger::new(x)?);
-    Ok(())
+fn main() -> Result<(),Box<dyn error::Error>> {
+let pretend_user_input = "42";
+let x: i64 = pretend_user_input.parse()?;
+println!("output={:?}", PositiveNonzeroInteger::new(x)?);
+Ok(())
 }
+
 
 // Don't change anything below this line.
 
 #[derive(PartialEq, Debug)]
 struct PositiveNonzeroInteger(u64);
 
-type Result<T> = std::result::Result<T, Box<dyn error::Error>>;
+// type Result<TT> = std::result::Result<T, Box<dyn error::Error>>;
 
 #[derive(PartialEq, Debug)]
 enum CreationError {
@@ -68,12 +68,6 @@ impl fmt::Display for CreationError {
             CreationError::Zero => "number is zero",
         };
         f.write_str(description)
-    }
-}
-
-impl Display for CreationError {
-    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-        todo!()
     }
 }
 
