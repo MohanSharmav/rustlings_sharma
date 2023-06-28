@@ -15,8 +15,7 @@
 
 // Execute `rustlings hint quiz3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-use std::fmt::{Debug, Display};
+use std::fmt:: Display;
 
 pub struct ReportCard<T> {
     pub grade: T,
@@ -25,12 +24,13 @@ pub struct ReportCard<T> {
 }
 
 
-impl <T: Display> ReportCard<T> {
+impl<T: Display> ReportCard<T> {
     fn print(&self) -> String {
         format!("{} ({}) - achieved a grade of {}",
             &self.student_name, &self.student_age, &self.grade)
     }
 }
+
 
 #[cfg(test)]
 mod tests {
